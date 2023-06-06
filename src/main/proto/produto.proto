@@ -1,0 +1,21 @@
+syntax = "proto3";
+package pb;
+option java_multiple_files = true;
+
+
+message ProdutoId {
+  uint64 produtoId = 1;
+}
+
+message ProdutoExiste {
+  bool existe = 1;
+}
+
+message ProductName {
+  string nome = 1;
+}
+
+service ProdutoService {
+  rpc VerifyProductExistence(ProdutoId) returns (ProdutoExiste) {}
+  rpc GetProductname(ProdutoId) returns (ProductName) {}
+}
